@@ -25,7 +25,7 @@ services:
 
     volumes:
       - data_vol:/opt/splunk/var
-      - ./tdc_ta_mobile_cnis:/opt/splunk/etc/apps/test_app
+     # - ./tdc_ta_mobile_cnis:/opt/splunk/etc/apps/test_app
     depends_on:
       - web
 
