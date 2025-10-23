@@ -1,0 +1,35 @@
+# version: "3.9"
+
+services:
+  web:
+    image: joseluisq/static-web-server
+    container_name: web
+    ports:
+      - 8087:80
+    volumes:
+      - ./public:/public:ro
+
+  sh1:
+    platform: linux/amd64
+    image: splunk/splunk:9.2.2
+    container_name: sh1
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_LICENSE_URI=http://web/Splunk.License
+      - SPLUNK_PASSWORD
+      - SPLUNK_APPS_URL=http://web/splunk-add-on-for-microsoft-visual-studio-code_013.tgz,http://web/splunk-add-on-for-unix-and-linux_1010.tgz
+    ports:
+      - 8000:8000
+      - 8089:8089
+      - 9997:9997
+
+    volumes:
+      - data_vol:/opt/splunk/var
+      - ./tdc_ta_mobile_cnis:/opt/splunk/etc/apps/test_app
+    depends_on:
+      - web
+
+volumes:
+  data_vol:
+
+

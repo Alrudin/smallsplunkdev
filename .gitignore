@@ -1,0 +1,8 @@
+.env
+.DS_Store
+.vscode/settings.json
+public/Splunk.License
+test_app/
+eventgen-test/
+data/
+tdc_ta_mobile_cnis/
