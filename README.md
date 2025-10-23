@@ -10,3 +10,4 @@ If you don't have a dev license comment out the line
 
 SPLUNK_LICENSE_URI=http://web/Splunk.License
 
+You need to add splunk password
